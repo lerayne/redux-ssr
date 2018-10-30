@@ -20,7 +20,7 @@
 ## createStaticGenerator
 функция генерирующая на выходе листенер URL-вызова express, например:
 ```javascript
-import {createStaticGenerator} from 'ssr-bootstrap'
+import {createStaticGenerator} from 'redux-ssr/lib/server'
 
 const generateStaticPage = createStaticGenerator({
     ...params
