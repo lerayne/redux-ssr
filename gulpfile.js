@@ -6,11 +6,22 @@ const rimraf = require('gulp-rimraf')
 gulp.task('default', () =>
     runSequence('clean', 'babel-build', () => {
         console.log('BUILD complete.');
-    }))
+    })
+)
+
+gulp.task('watch', () =>
+    runSequence('clean', 'babel-watch', () => {
+        console.log('BUILD complete.');
+    })
+)
 
 gulp.task('clean', () => gulp.src('./lib', { read: false }).pipe(rimraf()));
 
 gulp.task('babel-build',
     shell.task('node node_modules/babel-cli/bin/babel.js ./src --out-dir ./lib --source-maps')
+)
+
+gulp.task('babel-watch',
+    shell.task('node node_modules/babel-cli/bin/babel.js ./src --out-dir ./lib --source-maps --watch')
 )
 
